@@ -1,12 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model IQueryable<Book>
+@model ProjectsListViewModel
 
     <h1>Welcome to Amazon</h1>
 
    
-    @foreach(Book b in Model)
+    @foreach(Book b in Model.Books)
         {
             <br />
             <h3>@b.Title</h3>
@@ -20,5 +20,9 @@
     </ul>
     <br />
         }
+
+        <a asp-controller="Home" asp-action="Index" asp-route-pageNum="1">1</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-pageNum="2">2</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-pageNum="3">3</a>
 
 
