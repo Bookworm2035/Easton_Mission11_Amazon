@@ -6,16 +6,17 @@ namespace Easton_Mission11_Amazon.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IAmazonRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IAmazonRepository temp)
         {
-            _logger = logger;
+            _repo = temp;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var projectData = _repo.Books;
+            return View(projectData);
         }
 
         public IActionResult Privacy()
