@@ -8,24 +8,24 @@
    
     @foreach(Book b in Model.Books)
         {
-            <br />
-            <h3>@b.Title</h3>
+     <div class="card m-1 p-1">
+            <h3>@b.Title
+            <span class="badge rounded-pill bg-primary text-white float-end"><small>$@b.Price</small></span>
+            </h3>
     <ul>
             <li>Author: @b.Author</li>
             <li>Publisher: @b.Publisher</li>
             <li>ISBN: @b.Isbn</li>
             <li>@b.Classification</li>
             <li>Pages: @b.PageCount</li>
-            <li>Price: $@b.Price</li>
+           @*  <@* li>Price: $@b.Price</li> *@ 
     </ul>
-    <br />
+    </div>
         }
 
-        <a asp-controller="Home" asp-action="Index" asp-route-pageNum="1">1</a>
+       @*  <a asp-controller="Home" asp-action="Index" asp-route-pageNum="1">1</a>
         <a asp-controller="Home" asp-action="Index" asp-route-pageNum="2">2</a>
-        <a asp-controller="Home" asp-action="Index" asp-route-pageNum="3">3</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-pageNum="3">3</a> *@
 
 
-<div page-model="@Model.PaginationInfo" page-action="Index">
-
-</div>
+<div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true"page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
