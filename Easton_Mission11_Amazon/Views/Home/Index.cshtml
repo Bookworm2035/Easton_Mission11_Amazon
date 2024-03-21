@@ -5,19 +5,18 @@
 
     <h1>Welcome to Amazon</h1>
 
-    <ul>
+   
     @foreach(Book b in Model)
         {
             <h3>@b.Title</h3>
-            <li>@b.Author</li>
+    <ul>
+            <li>Author: @b.Author</li>
+            <li>Publisher: @b.Publisher</li>
+            <li>ISBN: @b.Isbn</li>
+            <li>@b.Classification</li>
+            <li>Pages: @b.PageCount</li>
+            <li>Price: $@b.Price</li>
+    </ul>
         }
-</ul>
 
 
-
-
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
