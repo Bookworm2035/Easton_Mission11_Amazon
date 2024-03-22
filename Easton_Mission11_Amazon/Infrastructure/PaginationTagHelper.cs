@@ -19,6 +19,8 @@ namespace Easton_Mission11_Amazon.Infrastructure
 
         [ViewContext]
         [HtmlAttributeNotBound]
+
+        //PAGINATION STUFF YAY
         public ViewContext? ViewContext { get; set; }
         public string? PageAction { get; set; }
         public PaginationInfo PageModel {  get; set; }
@@ -41,6 +43,8 @@ namespace Easton_Mission11_Amazon.Infrastructure
                 for (int i = 1; i <= PageModel.TotalPages; i++)
                 {
                     TagBuilder tag = new TagBuilder("a");
+
+                    //Add in CSS for the button
 
                     tag.Attributes["href"] = urlHelper.Action(PageAction, new { pageNum = i });
                     if (PageClassesEnabled) { 

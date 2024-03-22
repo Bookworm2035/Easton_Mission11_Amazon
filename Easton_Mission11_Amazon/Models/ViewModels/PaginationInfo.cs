@@ -1,5 +1,6 @@
 ﻿namespace Easton_Mission11_Amazon.Models.ViewModels
 {
+    //Facny page stuff
     public class PaginationInfo
     {
         public int TotalItems { get; set; }
