@@ -31,8 +31,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.MapControllerRoute(name: "default", pattern: "Books/{pageNum}", defaults: new { controller = "Home", action = "Index" });
+app.MapControllerRoute("pagination", "Books/{pageNum}", new { Controller = "Home", action = "Index" });
+app.MapDefaultControllerRoute();
 
 app.Run();
