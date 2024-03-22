@@ -9,19 +9,7 @@
    
     @foreach(Book b in Model.Books)
         {
-     <div class="card m-1 p-1">
-            <h3>@b.Title
-            <span class="badge rounded-pill bg-primary text-white float-end"><small>$@b.Price</small></span>
-            </h3>
-    <ul>
-            <li>Author: @b.Author</li>
-            <li>Publisher: @b.Publisher</li>
-            <li>ISBN: @b.Isbn</li>
-            <li>@b.Classification</li>
-            <li>Pages: @b.PageCount</li>
-           @*  <@* li>Price: $@b.Price</li> *@ 
-    </ul>
-    </div>
+            <partial name="ProjectSummary" model="b"/>
         }
 
        @*  <a asp-controller="Home" asp-action="Index" asp-route-pageNum="1">1</a>
