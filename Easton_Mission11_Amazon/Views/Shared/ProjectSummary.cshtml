@@ -16,5 +16,10 @@
         <li>@Model.Classification</li>
         <li>Pages: @Model.PageCount</li>
         @*  <@* li>Price: $@b.Price</li> *@
-    </ul>
+    </ul
+    <form method="post" asp-page="/Cart">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <button type="submit" class="btn-outline-success btn-sm float-end">Donate</button>
+    </form>
+    
 </div>

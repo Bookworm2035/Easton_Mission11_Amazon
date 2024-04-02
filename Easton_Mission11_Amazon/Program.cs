@@ -12,6 +12,7 @@ builder.Services.AddDbContext<BookstoreContext>(options =>
 });
 
 builder.Services.AddScoped<IAmazonRepository, EFAmazonRepository>();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -35,8 +36,13 @@ app.UseAuthorization();
 //    name: "default",
 //    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//app.MapControllerRoute(name: "default", pattern: "Books/{pageNum}", defaults: new { controller = "Home", action = "Index" });
-app.MapControllerRoute("pagination", "Books/{pageNum}", new { Controller = "Home", action = "Index" });
+app.MapControllerRoute(name: "default", pattern: "Books/{pageNum}", defaults: new { controller = "Home", action = "Index" });
+app.MapControllerRoute("pagenumandtype", "{bookType}/{pageNum}", new { Controller = "Home", action = "Index" });
+app.MapControllerRoute("bookType", "{bookType}", new { Controller = "Home", action = "Index", pageNum = 1 });
+app.MapControllerRoute("pagination", "Books/{pageNum}", new { Controller = "Home", action = "Index", pageNum = 1 });
+
 app.MapDefaultControllerRoute();
+
+app.MapRazorPages();
 
 app.Run();

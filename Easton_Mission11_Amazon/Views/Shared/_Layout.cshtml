@@ -25,24 +25,26 @@
                        @*  <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li> *@
-                    </ul>
+           @*          </ul>
                 </div>
             </div>
-        </nav>
+        </nav> *@
     </header>
     <div class="bg-dark text-white p-2">
         <span class="navvar-brand m-lg-2">The Retro Amazon</span>
     </div>
 
     <div class="row m-1 p-1">
-        <div class="col-3">Amazon could have looked like this</div>
+        <div class="col-3">
+            <vc:book-types />
+        </div>
+        <div class="container col-9">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

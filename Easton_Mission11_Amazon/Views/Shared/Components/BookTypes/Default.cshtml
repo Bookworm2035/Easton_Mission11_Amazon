@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IQueryable<string>
+
+    <div class="d-grid gap-2">
+        <a class="btn btn-outline-secondary" asp-controller= "Home" asp-action="Index" asp-route-bookType="" asp-route-pageNum="1">Home</a>
+        @foreach(string bt in Model ?? Enumerable.Empty<string>())
+        {
+            <a class="btn @(bt ==ViewBag.SelectedBookType ? "btn-primary" : "btn-outline-secondary") asp-controller="Home" asp-action="Index" asp-route-bookType="@bt" asp-route-pageNum="1">@bt</a>
+
+        }
+    </div>

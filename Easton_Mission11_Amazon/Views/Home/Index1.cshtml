@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Easton_Mission11_Amazon.Models.ViewModels.ProjectsListViewModel
+
+<h1>Welcome to Amazon</h1>
+
+
+
+@foreach (Book b in Model.Books)
+{
+    <partial name="ProjectSummary" model="b" />
+}
+
+<div page-model="@Model.PaginationInfo" page-action="Index"
+     page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-url-bookType="@Model.CurrentBookType"
+     class="btn-group pull-right m-1"></div>
