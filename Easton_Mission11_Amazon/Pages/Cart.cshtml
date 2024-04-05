@@ -1,5 +1,40 @@
 ﻿@page
-@model Easton_Mission11_Amazon.Pages.DonateModel
+@model Easton_Mission11_Amazon.Pages.CartModel
 @{
 }
-<h1>My first page lol</h1>
+<h2>Your Cart</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Quantity</th>
+            <th class="text-right">Amount</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var l in Model.Cart?.Lines ?? Enumerable.Empty<Cart.CartLine>())
+            {
+                <tr>
+                    <td class="text-left">@l.Book.Title</td>
+                    <td class="text-center">@l.Quantity</td>
+                    <td class="text-right">$25</td>
+                    <td class="text-right">@((l.Quantity * 25).ToString("c"))</td>
+                </tr>
+            }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:  </td>
+            <td class="text-right">@Model.Cart?.CalculateTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Keep searching!</a>
+</div>

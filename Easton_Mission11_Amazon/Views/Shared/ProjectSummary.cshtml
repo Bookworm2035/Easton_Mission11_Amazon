@@ -1,4 +1,5 @@
-﻿@*
+﻿@using Easton_Mission11_Amazon.Infrastructure
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -16,9 +17,11 @@
         <li>@Model.Classification</li>
         <li>Pages: @Model.PageCount</li>
         @*  <@* li>Price: $@b.Price</li> *@
-    </ul
-    <form method="post" asp-page="/Cart">
+    </ul>
+
+    <form id="@Model.BookId" method="post" asp-page="/Cart">
         <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
         <button type="submit" class="btn-outline-success btn-sm float-end">Donate</button>
     </form>
     

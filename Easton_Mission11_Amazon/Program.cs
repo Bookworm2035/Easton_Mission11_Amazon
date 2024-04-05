@@ -8,11 +8,13 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BookstoreContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:AmazonConnection"]);
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:AmazonConnection"]);
 });
 
 builder.Services.AddScoped<IAmazonRepository, EFAmazonRepository>();
 builder.Services.AddRazorPages();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
