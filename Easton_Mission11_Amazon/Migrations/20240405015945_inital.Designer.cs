@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Easton_Mission11_Amazon.Migrations
 {
     [DbContext(typeof(BookstoreContext))]
-    [Migration("20240405014317_Initial")]
-    partial class Initial
+    [Migration("20240405015945_inital")]
+    partial class inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
